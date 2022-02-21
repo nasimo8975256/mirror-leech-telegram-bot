@@ -152,14 +152,14 @@ def _getResult(search_results, key, message, tool):
                 msg += f"<code><a href='{result['Url']}'>{escape(result['Name'])}</a></code><br>"
                 if "Files" in result.keys():
                     for subres in result['Files']:
-                        msg += f"<b>Quality: </b>{subres['Quality']} | <b>Size: </b>{subres['Size']}<br>"
+                        msg += f"<b>╟—●Quality: </b>{subres['Quality']} | <b>Size: </b>{subres['Size']}<br>"
                         try:
                             msg += f"<a href='{subres['Torrent']}'>Direct Link</a><br>"
                         except KeyError:
                             msg += f"<b>Share Magnet to</b> <a href='http://t.me/share/url?url={subres['Magnet']}'>Telegram</a><br>"
                 else:
-                    msg += f"<b>Size: </b>{result['Size']}<br>"
-                    msg += f"<b>Seeders: </b>{result['Seeders']} | <b>Leechers: </b>{result['Leechers']}<br>"
+                    msg += f"<b>╟—●📦Files: </b>{result['Size']}<br>"
+                    msg += f"<b>╟—●Seeders: </b>{result['Seeders']} | <b>Leechers: </b>{result['Leechers']}<br>"
             except KeyError:
                 pass
             try:
@@ -172,8 +172,8 @@ def _getResult(search_results, key, message, tool):
                 msg += "<br>"
         else:
             msg += f"<a href='{result.descrLink}'>{escape(result.fileName)}</a><br>"
-            msg += f"<b>Size: </b>{get_readable_file_size(result.fileSize)}<br>"
-            msg += f"<b>Seeders: </b>{result.nbSeeders} | <b>Leechers: </b>{result.nbLeechers}<br>"
+            msg += f"<b>╟—●📦Size: </b>{get_readable_file_size(result.fileSize)}<br>"
+            msg += f"<b>╟—●Seeders: </b>{result.nbSeeders} | <b>Leechers: </b>{result.nbLeechers}<br>"
             link = result.fileUrl
             if link.startswith('magnet:'):
                 msg += f"<b>Share Magnet to</b> <a href='http://t.me/share/url?url={quote(link)}'>Telegram</a><br><br>"
@@ -192,7 +192,7 @@ def _getResult(search_results, key, message, tool):
 
     editMessage(f"<b>Creating</b> {len(telegraph_content)} <b>Telegraph pages.</b>", message)
     path = [telegraph.create_page(
-                title='Mirror-leech-bot Torrent Search',
+                title='Ih-Nasim-bot Torrent Search',
                 content=content
             )["path"] for content in telegraph_content]
     sleep(0.5)
@@ -218,7 +218,7 @@ def _edit_telegraph(path, telegraph_content):
                 nxt_page += 1
         telegraph.edit_page(
             path = path[prev_page],
-            title = 'Mirror-leech-bot Torrent Search',
+            title = 'ih-Nasim-bot Torrent Search',
             content=content
         )
     return
