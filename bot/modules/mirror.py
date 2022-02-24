@@ -229,7 +229,7 @@ class MirrorListener:
             else:
                 update_all_messages()
         else:
-            msg += f'\n\n<b>╟—●🔖Type: </b>{typ}'
+            msg += f'\n<b>╟—●🔖Type: </b>{typ}'
             if ospath.isdir(f'{DOWNLOAD_DIR}{self.uid}/{name}'):
                 msg += f'\n<b>╟—●📂SubFolders: </b>{folders}'
                 msg += f'\n<b>╟—●📦Files: </b>{files}'
