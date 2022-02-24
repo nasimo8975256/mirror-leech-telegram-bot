@@ -357,7 +357,7 @@ class GoogleDriveHelper:
                     self.deletefile(durl)
                     return "your clone has been stopped and cloned data has been deleted!", "cancelled"
                 msg += f'<b>╔—●ℹ️ Name: </b><code>{meta.get("name")}</code>\n<b>╟—●📦Size: </b>{get_readable_file_size(self.transferred_size)}'
-                msg += '\n\n<b>╟—●🔖Type: </b>Folder'
+                msg += '\n<b>╟—●🔖Type: </b>Folder'
                 msg += f'\n<b>╟—●📂SubFolders: </b>{self.__total_folders}'
                 msg += f'\n<b>╟—●📦Files: </b>{self.__total_files}'
                 buttons = ButtonMaker()
@@ -377,8 +377,8 @@ class GoogleDriveHelper:
                 buttons.buildbutton("☁️ Drive Link", durl)
                 if mime_type is None:
                     mime_type = 'File'
-                msg += f'\n\n<b>╟—●📦Size: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
-                msg += f'\n\n<b>╟—●🔖Type: </b>{mime_type}'
+                msg += f'\n<b>╟—●📦Size: </b>{get_readable_file_size(int(meta.get("size", 0)))}'
+                msg += f'\n<b>╟—●🔖Type: </b>{mime_type}'
                 if INDEX_URL is not None:
                     url_path = rquote(f'{file.get("name")}')
                     url = f'{INDEX_URL}/{url_path}'
@@ -752,8 +752,8 @@ class GoogleDriveHelper:
             if mime_type == self.__G_DRIVE_DIR_MIME_TYPE:
                 self.__gDrive_directory(meta)
                 msg += f'<b>╔—●ℹ️ Name: </b><code>{name}</code>'
-                msg += f'\n\n<b>╟—●📦Size: </b>{get_readable_file_size(self.__total_bytes)}'
-                msg += '\n\n<b>╟—●🔖Type: </b>Folder'
+                msg += f'\n<b>╟—●📦Size: </b>{get_readable_file_size(self.__total_bytes)}'
+                msg += '\n<b>╟—●🔖Type: </b>Folder'
                 msg += f'\n<b>╟—●📂SubFolders: </b>{self.__total_folders}'
                 msg += f'\n<b>╟—●📦Files: </b>{self.__total_files}'
             else:
@@ -762,8 +762,8 @@ class GoogleDriveHelper:
                     mime_type = 'File'
                 self.__total_files += 1
                 self.__gDrive_file(meta)
-                msg += f'\n\n<b>╟—●📦Size: </b>{get_readable_file_size(self.__total_bytes)}'
-                msg += f'\n\n<b>╟—●🔖Type: </b>{mime_type}'
+                msg += f'\n<b>╟—●📦Size: </b>{get_readable_file_size(self.__total_bytes)}'
+                msg += f'\n<b>╟—●🔖Type: </b>{mime_type}'
                 msg += f'\n<b>╟—●📦Files: </b>{self.__total_files}'
         except Exception as err:
             if isinstance(err, RetryError):
